@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Real Estate Investment Calculator</title>
+    <meta name="description" content="Contact the Real Estate Investment Calculator team for support, questions, or feedback.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Contact Us</h1>
+            <a href="index.html" class="btn btn-secondary">← Back to Calculator</a>
+        </header>
+
+        <main>
+            <section class="contact-section">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you! Whether you have a question, need support, or want to share feedback, please fill out the form below.</p>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="What's this regarding?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            Subscribe to our newsletter for real estate investing tips
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+
+                <div id="formSuccess" class="success-message" style="display: none;">
+                    <p>Thank you for your message! We'll get back to you soon.</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>How long does it take to get a response?</h3>
+                    <p>We typically respond to all inquiries within 24-48 hours on business days.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I request a feature?</h3>
+                    <p>Absolutely! We love hearing from users about what features would be most helpful. Feature requests help us prioritize future development.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is this the right place for technical support?</h3>
+                    <p>Yes! If you're experiencing any issues with the calculator, please let us know what browser and device you're using, and we'll help troubleshoot.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; <span id="year"></span> Real Estate Investment Calculator. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html">Calculator</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Handle contact form submission (for demo purposes)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // In a real implementation, this would send to a backend service
+            // For now, we'll just show a success message
+            this.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

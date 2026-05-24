@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Tests</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .pass { background-color: #d4edda; color: #155724; }
+        .fail { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Financial Calculator Tests</h1>
+    <div id="testResults"></div>
+
+    <script src="calc.js"></script>
+    <script>
+        function runTest(name, actual, expected, tolerance = 0.01) {
+            const passed = Math.abs(actual - expected) < tolerance;
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `test-result ${passed ? 'pass' : 'fail'}`;
+            resultDiv.innerHTML = `<strong>${name}</strong>: Expected ${expected}, Got ${actual} - ${passed ? 'PASS' : 'FAIL'}`;
+            document.getElementById('testResults').appendChild(resultDiv);
+            return passed;
+        }
+
+        // Test Cap Rate
+        runTest('Cap Rate - Basic', FinancialCalculator.calculateCapRate(24000, 300000), 8.0);
+        runTest('Cap Rate - Zero Value', FinancialCalculator.calculateCapRate(24000, 0), 0);
+        runTest('Cap Rate - Zero NOI', FinancialCalculator.calculateCapRate(0, 300000), 0);
+
+        // Test Mortgage Payment
+        runTest('Mortgage Payment - Standard', FinancialCalculator.calculateMortgagePayment(200000, 5, 30), 1073.64);
+        runTest('Mortgage Payment - Zero Interest', FinancialCalculator.calculateMortgagePayment(200000, 0, 30), 555.56);
+        runTest('Mortgage Payment - Zero Loan', FinancialCalculator.calculateMortgagePayment(0, 5, 30), 0);
+
+        // Test Cash on Cash
+        runTest('Cash on Cash - Basic', FinancialCalculator.calculateCashOnCash(12000, 100000), 12.0);
+        runTest('Cash on Cash - Zero Investment', FinancialCalculator.calculateCashOnCash(12000, 0), 0);
+
+        // Test NOI
+        runTest('NOI - Basic', FinancialCalculator.calculateNOI(50000, 20000), 30000);
+        runTest('NOI - Expenses > Income', FinancialCalculator.calculateNOI(20000, 50000), 0);
+
+        // Test LTV
+        runTest('LTV - Basic', FinancialCalculator.calculateLTV(160000, 200000), 80.0);
+        runTest('LTV - Zero Property Value', FinancialCalculator.calculateLTV(160000, 0), 0);
+
+        // Test Total Cash Invested
+        runTest('Total Cash Invested - Basic', FinancialCalculator.calculateTotalCashInvested(40000, 5000, 10000), 55000);
+        runTest('Total Cash Invested - No Rehab', FinancialCalculator.calculateTotalCashInvested(40000, 5000), 45000);
+
+        console.log('All tests completed. Check results above.');
+    </script>
+</body>
+</html>

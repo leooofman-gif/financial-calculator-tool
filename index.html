@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Investment Calculator - Analyze Deals Fast</title>
+    <meta name="description" content="Free real estate investment calculator for cap rate, cash on cash return, mortgage payments and more. Upgrade for advanced features.">
+
+    <!-- SEO Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Real Estate Investment Calculator",
+      "description": "Free real estate investment calculator for analyzing rental properties, calculating cap rate, cash on cash return, mortgage payments, and more.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Real Estate Investment Calculator</h1>
+            <p class="tagline">Analyze rental property deals in seconds - free basic calculations, premium features for advanced investors</p>
+        </header>
+
+        <main>
+            <!-- Free Tier Notice -->
+            <div class="free-tier-notice">
+                <strong>Free Tier Available:</strong> Cap rate, cash on cash return, mortgage payments, and basic ROI calculations
+            </div>
+
+            <!-- Calculator Form -->
+            <form id="calculatorForm" class="calculator-form">
+                <div class="form-section">
+                    <h2>Property Information</h2>
+                    <div class="form-group">
+                        <label for="propertyValue">Property Value or Price ($)</label>
+                        <input type="number" id="propertyValue" name="propertyValue" min="0" step="1000" data-currency required placeholder="e.g., 300000">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Income & Expenses</h2>
+                    <div class="form-group">
+                        <label for="noi">Annual Net Operating Income (NOI) ($)</label>
+                        <input type="number" id="noi" name="noi" min="0" step="100" data-currency placeholder="e.g., 24000">
+                        <p class="help-text">If unknown, leave blank and provide financing details below to calculate cash flow</p>
+                    </div>
+                </div>
+
+                <div class="form-section financing-section">
+                    <h2>Financing Details (Optional for Cash Flow)</h2>
+                    <div class="form-group">
+                        <label for="downPayment">Down Payment ($)</label>
+                        <input type="number" id="downPayment" name="downPayment" min="0" step="1000" data-currency placeholder="e.g., 60000">
+                    </div>
+                    <div class="form-group">
+                        <label for="closingCosts">Closing Costs ($)</label>
+                        <input type="number" id="closingCosts" name="closingCosts" min="0" step="100" data-currency placeholder="e.g., 5000">
+                    </div>
+                    <div class="form-group">
+                        <label for="annualInterestRate">Annual Interest Rate (%)</label>
+                        <input type="number" id="annualInterestRate" name="annualInterestRate" min="0" max="30" step="0.1" data-percent placeholder="e.g., 5.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="loanTermYears">Loan Term (Years)</label>
+                        <input type="number" id="loanTermYears" name="loanTermYears" min="1" max="40" step="1" placeholder="e.g., 30">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Calculate Investment Metrics</button>
+                    <button type="button" id="resetBtn" class="btn btn-secondary">Reset Form</button>
+                </div>
+            </form>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <h2>Investment Analysis Results</h2>
+                <div id="resultsContainer"></div>
+
+                <!-- Premium Notice -->
+                <div id="premiumNotice" class="premium-notice">
+                    <p><strong>Want more advanced analysis?</strong> Premium features include multi-year projections, export capabilities, sensitivity analysis, and professional reports.</p>
+                    <a href="pricing.html" class="btn btn-outline">See Premium Features →</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Features Comparison -->
+        <section class="features-comparison">
+            <h2>Free vs Premium Features</h2>
+            <div class="features-grid">
+                <div class="feature-column free">
+                    <h3>Free Tier</h3>
+                    <ul>
+                        <li>✓ Capitalization Rate (Cap Rate)</li>
+                        <li>✓ Cash on Cash Return</li>
+                        <li>✓ Monthly Mortgage Payment</li>
+                        <li>✓ Loan-to-Value Ratio (LTV)</li>
+                        <li>✓ Basic Annual Cash Flow</li>
+                        <li>✓ Mobile Responsive Design</li>
+                        <li>✓ Unlimited Calculations</li>
+                    </ul>
+                </div>
+                <div class="feature-column premium">
+                    <h3>Premium Features ($7 one-time)</h3>
+                    <ul>
+                        <li>✓ Everything in Free</li>
+                        <li>✓ Multi-Year Cash Flow Projections (5-10 years)</li>
+                        <li>✓ Expense Growth & Appreciation Modeling</li>
+                        <li>✓ Sensitivity Analysis (Best/Worst Case)</li>
+                        <li>✓ Export Results (PDF/CSV)</li>
+                        <li>✓ Professional Investment Reports</li>
+                        <li>✓ Property Comparison Tool</li>
+                        <li>✓ Tax Benefit Estimations</li>
+                        <li>✓ Priority Support</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-primary btn-block">Unlock Premium →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h2>Start Analyzing Better Deals Today</h2>
+            <p>Join thousands of real estate investors who use this calculator to make smarter investment decisions.</p>
+            <a href="#calculatorForm" class="btn btn-primary btn-lg">Scroll to Calculator</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Real Estate Investment Calculator. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="calc.js"></script>
+    <script src="ui.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

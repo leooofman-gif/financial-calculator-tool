@@ -1,0 +1,24 @@
+{
+  "name": "real-estate-investment-calculator",
+  "version": "1.0.0",
+  "description": "A web-based financial calculator for real estate investors with freemium model",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8080",
+    "build": "echo 'No build step needed - static site'",
+    "deploy": "echo 'To deploy to GitHub Pages: push to main branch and enable Pages in settings'"
+  },
+  "keywords": [
+    "real estate",
+    "calculator",
+    "investment",
+    "cap rate",
+    "cash on cash",
+    "financial tool"
+  ],
+  "author": "Built with Claude Code",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
