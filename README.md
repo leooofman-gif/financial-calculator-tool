@@ -11,7 +11,7 @@ This tool helps real estate investors analyze property deals by calculating key 
 - Loan-to-Value Ratio (LTV)
 - And more...
 
-Free tier provides essential calculations, while Premium ($7 one-time) unlocks advanced features like multi-year projections, export capabilities, and professional reports.
+Free tier provides essential calculations, while Premium (\$19 one-time) unlocks advanced features like multi-year projections, export capabilities, and professional reports.
 
 ## Features
 
@@ -24,7 +24,7 @@ Free tier provides essential calculations, while Premium ($7 one-time) unlocks a
 - Mobile-responsive design
 - Unlimited calculations
 
-### Premium Features ($7 one-time)
+### Premium Features (\$19 one-time)
 - Everything in Free
 - Multi-Year Cash Flow Projections (5-10 years)
 - Expense Growth & Appreciation Modeling
